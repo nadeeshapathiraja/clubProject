@@ -6,11 +6,12 @@
 
 <body class="body">
 <div class="logbox">
+<h1>Add Student</h1>
 <form name="form" action="#" method="post">
 <table class="tabledate">
 <tr>
 <td>Index Number: </td>
-<td><input name="index" type="text" ></td>
+<td><input name="index" type="text"  maxlength="20"></td>
 </tr>
 <tr>
 <td>Full Name: </td>
@@ -20,6 +21,7 @@
 <td>Name With Initial: </td>
 <td><input name="ininame" type="text" ></td>
 </tr>
+<tr>
 <td>Address: </td>
 <td><textarea name="address"></textarea></td>
 </tr>
@@ -31,24 +33,23 @@
 <td>Gender: </td>
 <td>Male:<input name="male" type="radio" >Female:<input name="female" type="radio" ></td>
 </tr>
+<tr>
 <td>School: </td>
 <td><input name="school" type="text" ></td>
 </tr>
+<tr>
 <td>Grade: </td>
 <td><input name="grade" type="text" ></td>
 </tr>
-</tr>
+<tr>
 <td>Parent Name: </td>
 <td><input name="grade" type="text" ></td>
 </tr>
+<tr>
 <td>Phone: </td>
 <td>Mobile: <input name="mobile" type="text" ><br/>Fixed: <input name="fixed" type="text" ></td>
+</tr>
 
-</tr>
-</tr>
-<td></td>
-<td></td>
-</tr>
 </tr>
 <td></td>
 <td><input name="Submit" type="submit" value="Submit"><input name="Reset" type="reset" value="Reset"></td>
