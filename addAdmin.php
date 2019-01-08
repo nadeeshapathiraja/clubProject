@@ -9,7 +9,7 @@
 <h1>Add Admins</h1>
 <form name="form" action="#" method="post">
 <table class="tabledate">
-<tr>
+
 <td>ID Number: </td>
 <td><input name="id" type="text"  maxlength="20"></td>
 </tr>
@@ -31,7 +31,7 @@
 </tr>
 <tr>
 <td>Gender: </td>
-<td>Male:<input name="male" type="radio" >Female:<input name="female" type="radio" ></td>
+<td>Male:<input name="gender" type="radio" >Female:<input name="gender" type="radio" ></td>
 </tr>
 <tr>
 <td>Phone: </td>

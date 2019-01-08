@@ -10,6 +10,10 @@
 <form name="form" action="#" method="post">
 <table class="tabledate">
 <tr>
+    <td>Image</td>
+    <td><input name="imgfile" type="file" placeholder="Browse"></td>
+  </tr>
+<tr>
 <td>ID Number: </td>
 <td><input name="id" type="text"  maxlength="20"></td>
 </tr>
@@ -31,7 +35,7 @@
 </tr>
 <tr>
 <td>Gender: </td>
-<td>Male:<input name="male" type="radio" >Female:<input name="female" type="radio" ></td>
+<td>Male:<input name="gender" type="radio" >Female:<input name="gender" type="radio" ></td>
 </tr>
 <tr>
 <td>School: </td>
