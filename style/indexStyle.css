@@ -32,3 +32,12 @@ li a:hover:not(.active) {
   color: white;
 }
 
+.schoolName{
+  text-align: center;
+  font-size:larger;
+}
+.club{
+  text-align: center;
+  font-style: italic;
+}
+
