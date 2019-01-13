@@ -31,4 +31,13 @@ li a:hover:not(.active) {
   background-color: #555;
   color: white;
 }
-
+logOut{
+	 
+}
+.header{
+	text-align:center;
+	font-size:24px;
+	font-family:Arial, Helvetica, sans-serif;
+	
+		
+}

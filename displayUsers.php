@@ -7,13 +7,7 @@
 
 <body>
 
-	<ul>
-        <li><a href="viewAdmin.php">Admins</a></li>
-        <li><a href="viewTeacher.php">Teachers</a></li>
-        <li><a href="viewOB.php">OB</a></li>
-        <li><a href="viewStudents.php">Students</a></li>
-            
-    </ul>
+	
     
 </body>
 </html>

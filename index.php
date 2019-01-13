@@ -5,7 +5,14 @@
 </head>
 
 <body>
-	
+
+	<div class="header">
+    	<h1>C.W.W KANNANGARA CENTRAL COLLAGE</h1>
+        <h1>MATHUGAMA</h1>
+    
+    </div>
+
+	<div class="menubar"> 
 	<ul>
     	<li><a class="active" href="#">Home</a></li>	
         <li><a href="displayUsers.php">Users</a></li>
@@ -15,6 +22,7 @@
         <li><a class="logOut" href="loginForm.php">Log Out</a></li>
 
 	</ul>
+    </div>
   
 </body>
 </html>
