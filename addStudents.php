@@ -1,3 +1,50 @@
+<?php 
+
+	$hostname='localhost';
+	$username='nadeesha';
+	$password='12345';
+
+	$con=mysqli_connect($hostname,$username,$password);
+
+	
+	$db=mysqli_select_db($con, "swimmingclub");
+
+	$sql="SELECT * FROM students";
+
+	$result= mysql_query($con,$sql);
+
+
+	if (mysqli_query($con, $sql)) {
+    	echo "New record created successfully";
+	} else {
+    	echo "Error: " . $sql . "<br>" . mysqli_error($con);
+	}
+
+
+	mysql_close($con);
+
+?>
+
+<?php
+	
+	$image=$_POST['imgfile']['name'];
+	$index=$_POST['index'];
+	$fullname=$_POST['fullname'];
+	$ininame=$_POST['ininame'];
+	$address=$_POST['address'];
+	$dob=$_POST['dob'];
+	$gender=$_POST['gender'];
+	$school=$_POST['school'];
+	$grade=$_POST['grade'];
+	$parentname=$_POST['parentname'];
+	$mobile=$_POST['mobile'];
+	$fixed=$_POST['fixed'];
+
+
+
+?>
+
+
 <html>
 <head>
 <title>Add Student</title>
@@ -47,7 +94,7 @@
 </tr>
 <tr>
 <td>Parent Name: </td>
-<td><input name="grade" type="text" ></td>
+<td><input name="parentname" type="text" ></td>
 </tr>
 <tr>
 <td>Phone: </td>

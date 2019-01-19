@@ -6,13 +6,10 @@
 
 <body>
 
-	<div class="header">
-    	<h1>C.W.W KANNANGARA CENTRAL COLLAGE</h1>
-        <h1>MATHUGAMA</h1>
-    
-    </div>
-
 	<div class="menubar"> 
+
+	<div>
+
 	<ul>
     	<li><a class="active" href="#">Home</a></li>	
         <li><a href="displayUsers.php">Users</a></li>
@@ -22,7 +19,17 @@
         <li><a class="logOut" href="loginForm.php">Log Out</a></li>
 
 	</ul>
+
     </div>
+
+	</div>
+	<div  class="school">
+		<pre class="schoolName">C.W.W KANNANGARA CENTRAL COLLAGE
+ MATHUGAMA</pre>
+ <p class="club">SWIMMING CLUB</p>
+	</div>
+	
+
   
 </body>
 </html>
