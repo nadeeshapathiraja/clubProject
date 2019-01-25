@@ -1,33 +1,8 @@
-<?php 
-
-	$hostname='localhost';
-	$username='nadeesha';
-	$password='12345';
-
-	$con=mysqli_connect($hostname,$username,$password);
-
-	
-	$db=mysqli_select_db($con, "swimmingclub");
-
-	$sql="SELECT * FROM students";
-
-	$result= mysql_query($con,$sql);
-
-
-	if (mysqli_query($con, $sql)) {
-    	echo "New record created successfully";
-	} else {
-    	echo "Error: " . $sql . "<br>" . mysqli_error($con);
-	}
-
-
-	mysql_close($con);
-
-?>
-
 <?php
+
+if(isset($_POST['index'])){
 	
-	$image=$_POST['imgfile']['name'];
+	$image=$_POST['imgfile']["name"];
 	$index=$_POST['index'];
 	$fullname=$_POST['fullname'];
 	$ininame=$_POST['ininame'];
@@ -41,6 +16,35 @@
 	$fixed=$_POST['fixed'];
 
 
+	$hostname='localhost';
+	$username='swimming';
+	$password='12345';
+
+	$con=mysqli_connect($hostname,$username,$password);
+
+	
+	$db=mysqli_select_db($con, "swimmingclub");
+
+	$sql="INSERT INTO students(image,indexno,fullname,ininame,address,dob,gender,school,grade,parentname,mobile,fixed) VALUES($index,'$fullname','$ininame','$address','$dob','$gender','$school','$grade','$parentname',$mobile,$fixed)";
+
+	$result= mysqli_query($con,$sql);
+	echo "Number of records Inserted: $result<br/>";
+
+	mysqli_close($con);
+
+	if($result==1){
+		//uplord file to server
+	//make file uplord path
+		$path="images/".$_FILES["imgfile"]["name"];
+	//uplord
+		move_uploaded_file($_FILES["imgfile"]["tmp_name"],$path);
+	}
+
+	if (mysqli_query($con, $sql)) {
+    	echo "New record created successfully";
+	} 
+
+}
 
 ?>
 
@@ -54,7 +58,7 @@
 <body class="body">
 <div class="logbox">
 <h1>Add Student</h1>
-<form name="form" action="#" method="post">
+<form name="form" action="addStudents.php" method="post">
 <table class="tabledate">
 <tr>
     <td>Image</td>
@@ -82,7 +86,7 @@
 </tr>
 <tr>
 <td>Gender: </td>
-<td>Male:<input name="gender" type="radio"  >Female:<input name="gender" type="radio" ></td>
+<td><input name="gender" type="text" ></td>
 </tr>
 <tr>
 <td>School: </td>
@@ -110,3 +114,22 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
+Warning: Illegal string offset 'name' in C:\xampp\htdocs\NIBMProject\addStudents.php on line 5
+
+Notice: Uninitialized string offset: 0 in C:\xampp\htdocs\NIBMProject\addStudents.php on line 5
+
+Notice: Undefined index: gender in C:\xampp\htdocs\NIBMProject\addStudents.php on line 11
+Number of records Inserted:
+
+Warning: mysqli_query(): Couldn't fetch mysqli in C:\xampp\htdocs\NIBMProject\addStudents.php on line 43
+
+
+
+
+
