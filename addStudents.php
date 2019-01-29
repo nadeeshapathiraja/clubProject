@@ -1,8 +1,9 @@
 <?php
 
-if(isset($_POST['index'])){
+if(isset($_POST['Submit'])){
 	
-	$image=$_POST['imgfile']["name"];
+	$image=basename($_FILES["imgfile"]["name"]);
+	
 	$index=$_POST['index'];
 	$fullname=$_POST['fullname'];
 	$ininame=$_POST['ininame'];
@@ -25,10 +26,15 @@ if(isset($_POST['index'])){
 	
 	$db=mysqli_select_db($con, "swimmingclub");
 
-	$sql="INSERT INTO students(image,indexno,fullname,ininame,address,dob,gender,school,grade,parentname,mobile,fixed) VALUES($index,'$fullname','$ininame','$address','$dob','$gender','$school','$grade','$parentname',$mobile,$fixed)";
+	$sql="INSERT INTO students(image,indexno,fullname,ininame,address,dob,gender,school,grade,parentname,mobile,fixed) VALUES('$image', $index,'$fullname','$ininame','$address','$dob','$gender','$school','$grade','$parentname',$mobile,$fixed)";
+	
 
 	$result= mysqli_query($con,$sql);
-	echo "Number of records Inserted: $result<br/>";
+	if (mysqli_query($con, $sql)) {
+    	echo "New record created successfully";
+	}
+
+	
 
 	mysqli_close($con);
 
@@ -40,15 +46,13 @@ if(isset($_POST['index'])){
 		move_uploaded_file($_FILES["imgfile"]["tmp_name"],$path);
 	}
 
-	if (mysqli_query($con, $sql)) {
-    	echo "New record created successfully";
-	} 
+	 
 
 }
 
 ?>
 
-
+ 
 <html>
 <head>
 <title>Add Student</title>
@@ -58,11 +62,11 @@ if(isset($_POST['index'])){
 <body class="body">
 <div class="logbox">
 <h1>Add Student</h1>
-<form name="form" action="addStudents.php" method="post">
+<form name="form" action="addStudents.php" method="post" enctype="multipart/form-data">
 <table class="tabledate">
 <tr>
     <td>Image</td>
-    <td><input name="imgfile" type="file" placeholder="Browse"></td>
+    <td><input name="imgfile" type="file" placeholder="SEARCH"></td>
   </tr>
 <tr>
 <td>Index Number: </td>
@@ -86,7 +90,7 @@ if(isset($_POST['index'])){
 </tr>
 <tr>
 <td>Gender: </td>
-<td><input name="gender" type="text" ></td>
+<td>Male<input value="Male" name="gender" type="radio" >Female<input value="Female" name="gender" type="radio" ></td>
 </tr>
 <tr>
 <td>School: </td>
@@ -94,8 +98,26 @@ if(isset($_POST['index'])){
 </tr>
 <tr>
 <td>Grade: </td>
-<td><input name="grade" type="text" ></td>
+<td><select name="grade">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="13">13</option>
+
+</select></td>
 </tr>
+
+
+
 <tr>
 <td>Parent Name: </td>
 <td><input name="parentname" type="text" ></td>
@@ -105,9 +127,18 @@ if(isset($_POST['index'])){
 <td>Mobile: <input name="mobile" type="text" ><br/>Fixed: <input name="fixed" type="text" ></td>
 </tr>
 
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+
 </tr>
 <td></td>
-<td><input name="Submit" type="submit" value="Submit"><input name="Reset" type="reset" value="Reset"></td>
+<td><input class="button" name="Submit" type="submit" value="Submit"><input name="Reset" type="reset" value="Reset"></td>
 </tr>
 </table>
 </form>
@@ -118,16 +149,6 @@ if(isset($_POST['index'])){
 
 
 
-
-
-Warning: Illegal string offset 'name' in C:\xampp\htdocs\NIBMProject\addStudents.php on line 5
-
-Notice: Uninitialized string offset: 0 in C:\xampp\htdocs\NIBMProject\addStudents.php on line 5
-
-Notice: Undefined index: gender in C:\xampp\htdocs\NIBMProject\addStudents.php on line 11
-Number of records Inserted:
-
-Warning: mysqli_query(): Couldn't fetch mysqli in C:\xampp\htdocs\NIBMProject\addStudents.php on line 43
 
 
 
