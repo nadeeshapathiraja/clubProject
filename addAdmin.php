@@ -3,16 +3,13 @@
 if(isset($_POST['Submit'])){
 	
 	$image=basename($_FILES["imgfile"]["name"]);
-	
-	$index=$_POST['index'];
+	$id=$_POST['id'];
 	$fullname=$_POST['fullname'];
 	$ininame=$_POST['ininame'];
 	$address=$_POST['address'];
 	$dob=$_POST['dob'];
 	$gender=$_POST['gender'];
-	$school=$_POST['school'];
-	$grade=$_POST['grade'];
-	$parentname=$_POST['parentname'];
+	$qulification=$_POST['qulification'];
 	$mobile=$_POST['mobile'];
 	$fixed=$_POST['fixed'];
 
@@ -26,7 +23,7 @@ if(isset($_POST['Submit'])){
 	
 	$db=mysqli_select_db($con, "swimmingclub");
 
-	$sql="INSERT INTO students(image,indexno,fullname,ininame,address,dob,gender,school,grade,parentname,mobile,fixed) VALUES('$image', $index,'$fullname','$ininame','$address','$dob','$gender','$school','$grade','$parentname',$mobile,$fixed)";
+	$sql="INSERT INTO admins(image,id,fullname,ininame,address,dob,gender,qulification,mobile,fixed) VALUES('$image', $id,'$fullname','$ininame','$address','$dob','$gender','$qulification',$mobile,$fixed)";
 	
 
 	$result= mysqli_query($con,$sql);
@@ -39,7 +36,7 @@ if(isset($_POST['Submit'])){
 	if($result==1){
 		//uplord file to server
 	//make file uplord path
-		$path="images/".$_FILES["imgfile"]["name"];
+		$path="admin/".$_FILES["imgfile"]["name"];
 	//uplord
 		move_uploaded_file($_FILES["imgfile"]["tmp_name"],$path);
 	}
@@ -52,53 +49,86 @@ if(isset($_POST['Submit'])){
 
 <html>
 <head>
-<title>Add Student</title>
+<title>Add Adminns</title>
 <link href="style/addingusers.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body class="body">
 <div class="logbox">
 <h1>Add Admins</h1>
-<form name="form" action="#" method="post">
+<form name="form" action="#" method="post"  enctype="multipart/form-data">
 <table class="tabledate">
 
-<td>ID Number: </td>
+<tr>
+    <td>Image</td>
+    <td><input name="imgfile" type="file" placeholder="SEARCH"></td>
+</tr> 
+
+<tr>
+<td>ID Card Number: </td>
 <td><input name="id" type="text"  maxlength="20"></td>
 </tr>
+
 <tr>
 <td>Full Name: </td>
 <td><input name="fullname" type="text" ></td>
 </tr>
+
 <tr>
 <td>Name With Initial: </td>
 <td><input name="ininame" type="text" ></td>
 </tr>
+
 <tr>
 <td>Address: </td>
 <td><textarea name="address"></textarea></td>
 </tr>
+
 <tr>
 <td>Date of Birth: </td>
 <td><input name="dob" type="date" ></td>
 </tr>
+
 <tr>
 <td>Gender: </td>
-<td>Male:<input name="gender" type="radio" >Female:<input name="gender" type="radio" ></td>
+<td>Male:<input value="Male" name="gender" type="radio" >Female:<input value="Female" name="gender" type="radio" ></td>
 </tr>
-<tr>
-<td>Phone: </td>
-<td>Mobile: <input name="mobile" type="text" ><br/>Fixed: <input name="fixed" type="text" ></td>
-</tr>
+
 <tr>
 <td>Qulifications: </td>
 <td><textarea name="qulification"></textarea></td>
 </tr>
+
+<tr>
+<td>Phone: </td>
+<td>Mobile: <input name="mobile" type="text" ><br/>Fixed: <input name="fixed" type="text" ></td>
 </tr>
+
+
+
+<tr>
+<td></td>
+<td></td>
+</tr> 
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
 <td></td>
 <td><input name="Submit" type="submit" value="Submit"><input name="Reset" type="reset" value="Reset"></td>
 </tr>
+
+
+
 </table>
+
 </form>
+
 </div>
+
 </body>
+
 </html>

@@ -41,7 +41,7 @@ if(isset($_POST['Submit'])){
 	if($result==1){
 		//uplord file to server
 	//make file uplord path
-		$path="images/".$_FILES["imgfile"]["name"];
+		$path="Students/".$_FILES["imgfile"]["name"];
 	//uplord
 		move_uploaded_file($_FILES["imgfile"]["tmp_name"],$path);
 	}
@@ -67,7 +67,7 @@ if(isset($_POST['Submit'])){
 <tr>
     <td>Image</td>
     <td><input name="imgfile" type="file" placeholder="SEARCH"></td>
-  </tr>
+</tr>
 <tr>
 <td>Index Number: </td>
 <td><input name="index" type="text"  maxlength="20"></td>
@@ -130,7 +130,8 @@ if(isset($_POST['Submit'])){
 <tr>
 <td></td>
 <td></td>
-</tr>
+</tr> 
+
 <tr>
 <td></td>
 <td></td>
