@@ -3,16 +3,13 @@
 if(isset($_POST['Submit'])){
 	
 	$image=basename($_FILES["imgfile"]["name"]);
-	
-	$index=$_POST['index'];
+	$tid=$_POST['tid'];
+	$id=$_POST['id'];
 	$fullname=$_POST['fullname'];
 	$ininame=$_POST['ininame'];
 	$address=$_POST['address'];
 	$dob=$_POST['dob'];
 	$gender=$_POST['gender'];
-	$school=$_POST['school'];
-	$grade=$_POST['grade'];
-	$parentname=$_POST['parentname'];
 	$mobile=$_POST['mobile'];
 	$fixed=$_POST['fixed'];
 
@@ -26,7 +23,7 @@ if(isset($_POST['Submit'])){
 	
 	$db=mysqli_select_db($con, "swimmingclub");
 
-	$sql="INSERT INTO students(image,indexno,fullname,ininame,address,dob,gender,school,grade,parentname,mobile,fixed) VALUES('$image', $index,'$fullname','$ininame','$address','$dob','$gender','$school','$grade','$parentname',$mobile,$fixed)";
+	$sql="INSERT INTO students(image,tid,id,fullname,ininame,address,dob,gender,mobile,fixed) VALUES('$image', $tid,$id,'$fullname','$ininame','$address','$dob','$gender',$mobile,$fixed)";
 	
 
 	$result= mysqli_query($con,$sql);
@@ -58,7 +55,7 @@ if(isset($_POST['Submit'])){
 <body class="body">
 <div class="logbox">
 <h1>Add Teachers</h1>
-<form name="form" action="#" method="post">
+<form name="form" action="#" method="post" enctype="multipart/form-data">
 <table class="tabledate"> 
 
 <tr>
@@ -101,10 +98,6 @@ if(isset($_POST['Submit'])){
 <td>Male:<input name="gender" type="radio" >Female:<input name="gender" type="radio" ></td>
 </tr>
 
-<tr>
-<td>School: </td>
-<td><input name="school" type="text" ></td>
-</tr>
 
 <tr>
 <td>Phone: </td>
@@ -124,7 +117,7 @@ if(isset($_POST['Submit'])){
 
 </tr>
 <td></td>
-<td><input name="Submit" type="submit" value="Submit"><input name="Reset" type="reset" value="Reset"></td>
+<td><input class="button1" name="Submit" type="submit" value="Submit"><input class="button2" name="Reset" type="reset" value="Reset"></td>
 </tr>
 
 
@@ -133,3 +126,4 @@ if(isset($_POST['Submit'])){
 </div>
 </body>
 </html>
+

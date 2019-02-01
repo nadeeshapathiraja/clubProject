@@ -36,7 +36,7 @@ if(isset($_POST['Submit'])){
 	if($result==1){
 		//uplord file to server
 	//make file uplord path
-		$path="admin/".$_FILES["imgfile"]["name"];
+		$path="teachers/".$_FILES["imgfile"]["name"];
 	//uplord
 		move_uploaded_file($_FILES["imgfile"]["tmp_name"],$path);
 	}
@@ -118,7 +118,7 @@ if(isset($_POST['Submit'])){
 
 <tr>
 <td></td>
-<td><input name="Submit" type="submit" value="Submit"><input name="Reset" type="reset" value="Reset"></td>
+<td><input class="button1" name="Submit" type="submit" value="Submit"><input class="button2" name="Reset" type="reset" value="Reset"></td>
 </tr>
 
 
@@ -132,3 +132,6 @@ if(isset($_POST['Submit'])){
 </body>
 
 </html>
+
+
+
