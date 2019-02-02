@@ -23,7 +23,7 @@ if(isset($_POST['Submit'])){
 	
 	$db=mysqli_select_db($con, "swimmingclub");
 
-	$sql="INSERT INTO students(image,tid,id,fullname,ininame,address,dob,gender,mobile,fixed) VALUES('$image', $tid,$id,'$fullname','$ininame','$address','$dob','$gender',$mobile,$fixed)";
+	$sql="INSERT INTO teachers(image,tid,id,fullname,ininame,address,dob,gender,mobile,fixed) VALUES('$image', $tid,$id,'$fullname','$ininame','$address','$dob','$gender',$mobile,$fixed)";
 	
 
 	$result= mysqli_query($con,$sql);
@@ -36,7 +36,7 @@ if(isset($_POST['Submit'])){
 	if($result==1){
 		//uplord file to server
 	//make file uplord path
-		$path="images/".$_FILES["imgfile"]["name"];
+		$path="teachers/".$_FILES["imgfile"]["name"];
 	//uplord
 		move_uploaded_file($_FILES["imgfile"]["tmp_name"],$path);
 	}
@@ -95,7 +95,7 @@ if(isset($_POST['Submit'])){
 
 <tr>
 <td>Gender: </td>
-<td>Male:<input name="gender" type="radio" >Female:<input name="gender" type="radio" ></td>
+<td>Male<input value="Male" name="gender" type="radio" >Female<input value="Female" name="gender" type="radio" ></td>
 </tr>
 
 
