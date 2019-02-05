@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 	
 .header{
@@ -109,11 +109,14 @@ body {
 
 
 <div class="topnav">
-  		<a class="active" href="#home">Home</a>
-  		<a href="displayUsers.php">Users</a>
-  		<a href="displayNews.php">News</a>
-  		<a href="aboutUs.php">About Us</a>
-  		<a href="#contact">Contact</a>
+  		<a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+  		<a href="displayUsers.php"><i class="fa fa-user" aria-hidden="true"></i>
+Users</a>
+  		<a href="displayNews.php"><i class="fa fa-calendar" aria-hidden="true"></i>
+ News</a>
+  		<a href="aboutUs.php"><i class="fa fa-user-o" aria-hidden="true"></i>
+ About Us</a>
+  		<a href="#contact"><i class="fa fa-fw fa-envelope"></i>Contact</a>
   <div class="search-container">
     <form action="/action_page.php">
       <input type="text" placeholder="Search.." name="search">
