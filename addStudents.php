@@ -3,7 +3,6 @@
 if(isset($_POST['Submit'])){
 	
 	$image=basename($_FILES["imgfile"]["name"]);
-	
 	$index=$_POST['index'];
 	$fullname=$_POST['fullname'];
 	$ininame=$_POST['ininame'];
