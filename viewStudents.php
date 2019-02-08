@@ -1,5 +1,3 @@
-
-<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,7 +41,7 @@ table, th, td {
 </head>
 <body>
 
-<h2>Two Unequal Columns</h2>
+<h2>View All Students</h2>
 
 <div class="row">
   <div class="column left">
@@ -57,14 +55,13 @@ table, th, td {
 	
 	$dbconect=mysqli_select_db($con,"swimmingclub");
 	
-	$sql="SELECT * FROM students";
+	$sql="SELECT * FROM students ";
 
 	$result= mysqli_query($con,$sql);
 ?>
 	
 	<table , th, td style="border: 1px solid black;
-  				border-collapse: collapse;
-  	">
+  				border-collapse: collapse; ">
 		<tr>
 			<th>Image </th>
 			<th>Index </th>
@@ -87,9 +84,9 @@ table, th, td {
 			$data[]=$row;
 		}	
 		foreach($data as $d){
-			?>
+		?>
 
-		sort($d);
+		
 		<tr>
 			
 				<td><img src="http://localhost/NIBMProject/students/<?php echo  $d['image']; ?>" style="height: 100px; width: 100px;"></td>
@@ -115,13 +112,18 @@ table, th, td {
 	</div>
   <div class="column right" style="background-color:#FFF8DC;">
     <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+   
+    <form method="post" action="viewSearchStudent.php" name="form" >
+	<h1>Search Student</h1>
+	<input type="submit" name="search" class="fa fa-search" value="Search" value="<?php echo $index; ?>" />
+</form>
+
   </div>
   </div>
 </div>
 
 </body>
 </html>
+
+
+
