@@ -66,28 +66,26 @@ if (isset($_POST["searchid"])){
 <html>
 <head>
 <title>view Search Student</title>
-<link href="" rel="stylesheet" type="text/css"/>
+<link href="style/viewSearchStudent.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body class="body">
-
-
-<form method="post" action="#" name="form" style="text-align:center" >
+<form method="post" action="#" class="form1" name="form1" style="text-align:center" >
 	<h1>Search Student</h1>
-	Enter SId: <input type="text" name="searchid" size="10px"/>
-	<input type="submit" name="search" value="Search" value="<?php echo $index; ?>" />
+	Enter SId: <input type="text" class="searchfield" name="searchid" placeholder="Enter Index Number" size="10px"/>
+	<input type="submit" class="search" value="Search" value="<?php echo $index; ?>" />
 </form>
 
 
 <div class="logbox">
 <h1>View Student</h1>
-<form name="form" action="#" method="post"  enctype="multipart/form-data">
+<form class="form2" name="form2" action="#" method="post"  enctype="multipart/form-data">
 <table class="tabledate">
 
-<tr>
+<!-- <tr>
     <td>Image</td>
     <td><input name="imgfile" type="file" placeholder="SEARCH" value="<?php echo $row[0]; ?>"></td>
-</tr> 
+</tr> --> 
 
 <tr>
 <td>ID Card Number: </td>
@@ -120,8 +118,8 @@ if (isset($_POST["searchid"])){
 <td>Male:<input value="Male" name="gender" type="radio" checked>
 Female:<input value="Female" name="gender" type="radio" ></td>
 <?php } else{?>
-	<td>Male:<input value="Male" name="gender" type="radio" checked>
-Female:<input value="Female" name="gender" type="radio" ></td>
+	<td>Male:<input value="Male" name="gender" type="radio" >
+Female:<input value="Female" name="gender" type="radio" checked ></td>
 <?php }?>
 </tr>
 

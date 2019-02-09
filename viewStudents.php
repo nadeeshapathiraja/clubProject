@@ -36,12 +36,19 @@ table, th, td {
   text-align: center;
   background-color: #f1f1c1;
 }
+.buttonSearch{
+	width: 150px;
+	height: 50px;
+	background-color:#32CD32;
+	border-radius: 8px;
+	font-size: 20px;
+}
 
 </style>
 </head>
 <body>
 
-<h2>View All Students</h2>
+<h2 style="text-align: center; font-size: 70px; ">View All Students</h2>
 
 <div class="row">
   <div class="column left">
@@ -115,7 +122,7 @@ table, th, td {
    
     <form method="post" action="viewSearchStudent.php" name="form" >
 	<h1>Search Student</h1>
-	<input type="submit" name="search" class="fa fa-search" value="Search" value="<?php echo $index; ?>" />
+	<input type="submit" name="search" class="buttonSearch" value="Search" value="<?php echo $index; ?>" />
 </form>
 
   </div>
