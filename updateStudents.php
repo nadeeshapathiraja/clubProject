@@ -1,15 +1,17 @@
 <?php
 
-	//error_reporting(0);
+	error_reporting(0);
 
 	$image="";
-	$id="";
+	$indexno="";
 	$fullname="";
 	$ininame="";
 	$address="";
 	$dob="";
 	$gender="";
-	$qulification="";
+	$school="";
+	$grade="";
+	$parentname="";
 	$mobile="";
 	$fixed="";
 		
@@ -27,7 +29,7 @@ if (isset($_POST["searchid"])){
 	$database=mysqli_select_db($con,"swimmingclub");
 	
 	
-	$sql="SELECT * FROM admins WHERE id='$searchid' ";
+	$sql="SELECT * FROM students WHERE indexno='$searchid' ";
 	
 	
 	$result=mysqli_query($con,$sql);
@@ -37,13 +39,15 @@ if (isset($_POST["searchid"])){
  	if($row = mysqli_fetch_array($result)){
 
 		$image=$row[0];
-		$id=$row[1];
+		$indexno=$row[1];
 		$fullname=$row[2];
 		$ininame=$row[3];
 		$address=$row[4];
 		$dob=$row[5];
 		$gender=$row[6];
-		$qulification=$row[7];
+		$school=$row[7];
+		$grade=$row[8];
+		$parentname=$row[9];
 		$mobile=$row[8];
 		$fixed=$row[9];
 		//echo $id;
@@ -77,17 +81,19 @@ if (isset($_REQUEST["update"])){
 	$database=mysqli_select_db($con,"swimmingclub");
 	
 	$image = basename($_FILES['imgfile']['name']);
-	$id = $_POST['id'];
+	$indexno = $_POST['indexno'];
 	$fullname = $_POST['fullname'];
 	$ininame=$_POST['ininame'];
 	$address=$_POST['address']; 
-	 $dob=$_POST['dob'] ;
-	 $gender=$_POST['gender'] ;
-	 $qulification=$_POST['qulification'];
-	 $mobile=$_POST['mobile'];
+	$dob=$_POST['dob'] ;
+	$gender=$_POST['gender'] ;
+	$school=$_POST['school'];
+	$grade=$_POST['grade'];
+	$parentname=$_POST['parentname'];
+	$mobile=$_POST['mobile'];
 	$fixed=$_POST['fixed'];
 
-$sql="UPDATE admins SET image='$image' , id=$id , fullname='$fullname' , ininame='$ininame' , address='$address', dob='$dob',gender='$gender', qulification='$qulification', mobile=$mobile, fixed=$fixed WHERE id=$id";
+$sql="UPDATE students SET image='$image' , indexno=$indexno , fullname='$fullname' , ininame='$ininame' , address='$address', dob='$dob',gender='$gender', school='$school', grade='$grade', parentname='$parentname' , mobile=$mobile, fixed=$fixed WHERE indexno=$indexno";
 
 
 	$result=mysqli_query($con,$sql);
@@ -136,8 +142,8 @@ $sql="UPDATE admins SET image='$image' , id=$id , fullname='$fullname' , ininame
 </tr> 
 
 <tr>
-<td>ID Card Number: </td>
-<td><input name="id" type="text"  maxlength="20" value="<?php echo $row[1]; ?>"></td>
+<td>Index Number: </td>
+<td><input name="indexno" type="text"  maxlength="20" value="<?php echo $row[1]; ?>"></td>
 </tr>
 
 <tr>
@@ -172,13 +178,24 @@ Female:<input value="Female" name="gender" type="radio" ></td>
 </tr>
 
 <tr>
-<td>Qulifications: </td>
-<td><textarea name="qulification" ><?php echo $row[7]; ?></textarea></td>
+<td>School:</td>
+<td><input name="school" type="text" value="<?php echo $row[7]; ?>" ></td>
 </tr>
 
 <tr>
+<td>Grade: </td>
+<td><input name="grade" type="text" value="<?php echo $row[8]; ?>" ></td>
+</tr>
+
+<tr>
+<td>Parent Name: </td>
+<td><input name="parentname" type="text" value="<?php echo $row[9]; ?>" ></td>
+</tr>
+
+
+<tr>
 <td>Phone: </td>
-<td>Mobile: <input name="mobile" type="text" value="<?php echo $row[8]; ?>" ><br/>Fixed: <input name="fixed" type="text" value="<?php echo $row[9]; ?>" ></td>
+<td>Mobile: <input name="mobile" type="text" value="<?php echo $row[10]; ?>" ><br/>Fixed: <input name="fixed" type="text" value="<?php echo $row[11]; ?>" ></td>
 </tr>
 
 
