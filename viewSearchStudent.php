@@ -72,7 +72,7 @@ if (isset($_POST["searchid"])){
 <body class="body">
 <form method="post" action="#" class="form1" name="form1" style="text-align:center" >
 	<h1>Search Student</h1>
-	Enter SId: <input type="text" class="searchfield" name="searchid" placeholder="Enter Index Number" size="10px"/>
+	Enter Index: <input type="text" class="searchfield" name="searchid" placeholder="Enter Index Number" size="10px"/>
 	<input type="submit" class="search" value="Search" value="<?php echo $index; ?>" />
 </form>
 

@@ -69,7 +69,7 @@ if (isset($_POST["searchid"])){
  <?php
 
 
-if (isset($_REQUEST["update"])){
+if (isset($_REQUEST["delete"])){
 
 	$hostname= "localhost";
 	$username="swimming";
@@ -93,14 +93,14 @@ if (isset($_REQUEST["update"])){
 	$mobile=$_POST['mobile'];
 	$fixed=$_POST['fixed'];
 
-$sql="UPDATE students SET image='$image' , indexno=$indexno , fullname='$fullname' , ininame='$ininame' , address='$address', dob='$dob',gender='$gender', school='$school', grade='$grade', parentname='$parentname' , mobile=$mobile, fixed=$fixed WHERE indexno=$indexno";
+$sql="DELETE FROM students WHERE indexno=$indexno";
 
 
 	$result=mysqli_query($con,$sql);
 
 	
 	if ($con->query($sql) === TRUE) {
-    	echo "Record updated successfully: $result<br />";
+    	echo "Record Delete successfully: $result<br />";
 	} else {
     	echo "Error updating record: " . $con->error;
 	}
@@ -117,8 +117,8 @@ $sql="UPDATE students SET image='$image' , indexno=$indexno , fullname='$fullnam
 
 <html>
 <head>
-<title>Update Students</title>
-<link href="style/updateUsers.css" rel="stylesheet" type="text/css"/>
+<title>Delete Students</title>
+<link href="style/deleteUsers.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body class="body">
@@ -132,7 +132,7 @@ $sql="UPDATE students SET image='$image' , indexno=$indexno , fullname='$fullnam
 
 
 <div class="logbox">
-<h1>Update Student Details</h1>
+<h1>Delete Student</h1>
 <form name="form" action="#" method="post"  enctype="multipart/form-data">
 <table class="tabledate">
 
@@ -212,7 +212,7 @@ Female:<input value="Female" name="gender" type="radio" checked></td>
 
 <tr>
 <td></td>
-<td><input class="button1" name="update" type="submit" value="Update"><input class="button2" name="Reset" type="reset" value="Reset"></td>
+<td><input class="button1" name="delete" type="submit" value="Delete"><input class="button2" name="Reset" type="reset" value="Reset"></td>
 </tr>
 
 
