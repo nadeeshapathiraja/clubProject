@@ -82,10 +82,10 @@ if (isset($_POST["searchid"])){
 <form class="form2" name="form2" action="#" method="post"  enctype="multipart/form-data">
 <table class="tabledate">
 
-<!-- <tr>
+<tr>
     <td>Image</td>
-    <td><input name="imgfile" type="file" placeholder="SEARCH" value="<?php echo $row[0]; ?>"></td>
-</tr> --> 
+    <td><img src="http://localhost/NIBMProject/students/<?php echo  $row[0] ?>" style="height: 100px; width: 100px;"></td>
+</tr> 
 
 <tr>
 <td>ID Card Number: </td>

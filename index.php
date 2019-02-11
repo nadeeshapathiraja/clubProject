@@ -110,7 +110,7 @@ body {
 
 <div class="topnav">
   		<a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-  		<a href="displayUsers.php"><i class="fa fa-user" aria-hidden="true"></i>
+  		<a href="ViewUpdateDeleteStudents.php"><i class="fa fa-user" aria-hidden="true"></i>
 Users</a>
   		<a href="displayNews.php"><i class="fa fa-calendar" aria-hidden="true"></i>
  News</a>

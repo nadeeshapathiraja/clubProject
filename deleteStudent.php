@@ -138,7 +138,7 @@ $sql="DELETE FROM students WHERE indexno=$indexno";
 
 <tr>
     <td>Image</td>
-    <td><input name="imgfile" type="file" placeholder="SEARCH" value="<?php echo $row[0]; ?>"></td>
+    <td><img src="http://localhost/NIBMProject/students/<?php echo  $row[0] ?>" style="height: 100px; width: 100px;"></td>
 </tr> 
 
 <tr>

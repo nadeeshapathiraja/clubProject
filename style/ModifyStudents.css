@@ -1,4 +1,16 @@
 /* Style The Dropdown Button */
+
+body{
+  margin:0;
+  padding:0;
+  height:600px;
+  background:url(../Image/2.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  box-sizing:border-box;
+} 
+
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -6,12 +18,14 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
+  width: 200px;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
+
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -43,4 +57,17 @@
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+.insert{
+  background-color: #0000CD;
+}
+.update{
+  background-color: #0000CD;
+}
+.delete{
+  background-color:#FF0000; 
+}
+.views{
+  background-color: #0000CD;
 }
