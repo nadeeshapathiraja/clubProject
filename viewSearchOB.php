@@ -4,16 +4,17 @@
 
 	$image="";
 	$id="";
+	$index="";
 	$fullname="";
 	$ininame="";
 	$address="";
 	$dob="";
 	$gender="";
-	$school="";
-	$grade="";
-	$parentname="";
+	$entryyear="";
+	$outyear="";
 	$mobile="";
 	$fixed="";
+	$lifetime="";
 		
 if (isset($_POST["searchid"])){
 
@@ -29,7 +30,7 @@ if (isset($_POST["searchid"])){
 	$database=mysqli_select_db($con,"swimmingclub");
 	
 	
-	$sql="SELECT * FROM students WHERE indexno='$searchid' ";
+	$sql="SELECT * FROM ob WHERE id='$searchid' ";
 	
 	
 	$result=mysqli_query($con,$sql);
@@ -40,16 +41,17 @@ if (isset($_POST["searchid"])){
 
 		$image=$row[0];
 		$id=$row[1];
-		$fullname=$row[2];
-		$ininame=$row[3];
-		$address=$row[4];
-		$dob=$row[5];
-		$gender=$row[6];
-		$school=$row[7];
-		$grade=$row[8];
-		$parentname=$row[9];
+		$index=$row[2];
+		$fullname=$row[3];
+		$ininame=$row[4];
+		$address=$row[5];
+		$dob=$row[6];
+		$gender=$row[7];
+		$entryyear=$row[8];
+		$outyear=$row[9];
 		$mobile=$row[10];
 		$fixed=$row[11];
+		$lifetime=$row[12];
 		
 	}else{
 		echo "Not  This Record In Database<br/>";	
@@ -65,20 +67,20 @@ if (isset($_POST["searchid"])){
 
 <html>
 <head>
-<title>view Search Student</title>
+<title>view Search OB</title>
 <link href="style/viewSearch.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body class="body">
 <form method="post" action="#" class="form1" name="form1" style="text-align:center" >
-	<h1>Search Student</h1>
-	Enter Index: <input type="text" class="searchfield" name="searchid" placeholder="Enter Index Number" size="10px"/>
+	<h1>Search OB</h1>
+	Enter NIC: <input type="text" class="searchfield" name="searchid" placeholder="Enter Index Number" size="10px"/>
 	<input type="submit" class="search" value="Search" value="<?php echo $index; ?>" />
 </form>
 
 
 <div class="logbox">
-<h1>View Student</h1>
+<h1>View OB Student</h1>
 <form class="form2" name="form2" action="#" method="post"  enctype="multipart/form-data">
 <table class="tabledate">
 
@@ -93,28 +95,33 @@ if (isset($_POST["searchid"])){
 </tr>
 
 <tr>
+<td>Index Number: </td>
+<td><input name="index" type="text" value="<?php echo $row[2]; ?>"  maxlength="20"></td>
+</tr>
+
+<tr>
 <td>Full Name: </td>
-<td><input name="fullname" type="text" value="<?php echo $row[2]; ?>" ></td>
+<td><input name="fullname" type="text" value="<?php echo $row[3]; ?>" ></td>
 </tr>
 
 <tr>
 <td>Name With Initial: </td>
-<td><input name="ininame" type="text" value="<?php echo $row[3]; ?>" ></td>
+<td><input name="ininame" type="text" value="<?php echo $row[4]; ?>" ></td>
 </tr>
 
 <tr>
 <td>Address: </td>
-<td><textarea name="address" ><?php echo $row[4]; ?></textarea></td>
+<td><textarea name="address" ><?php echo $row[5]; ?></textarea></td>
 </tr>
 
 <tr>
 <td>Date of Birth: </td>
-<td><input name="dob" type="date" value="<?php echo $row[5]; ?>" ></td>
+<td><input name="dob" type="date" value="<?php echo $row[6]; ?>" ></td>
 </tr>
 
 <tr>
 <td>Gender: </td>
-<?php if($row[6]=="Male"){ ?>
+<?php if($row[7]=="Male"){ ?>
 <td>Male:<input value="Male" name="gender" type="radio" checked>
 Female:<input value="Female" name="gender" type="radio" ></td>
 <?php } else{?>
@@ -124,23 +131,13 @@ Female:<input value="Female" name="gender" type="radio" checked ></td>
 </tr>
 
 <tr>
-<td>School: </td>
-<td><input name="school" type="text" value="<?php echo $row[7]; ?>" ></td>
-</tr>
-<tr>
-<td>Grade: </td>
-<td><select name="grade">
-		<option value="<?php echo $row[8]; ?>"><?php echo $row[8]; ?></option>
-		
-
-</select></td>
+<td>Entry Year: </td>
+<td><input name="entryyear" value="<?php echo $row[8]; ?>" type="text" ></td>
 </tr>
 
-
-
 <tr>
-<td>Parent Name: </td>
-<td><input name="parentname" type="text" value="<?php echo $row[9]; ?>" ></td>
+<td>Out Year: </td>
+<td><input name="outyear" value="<?php echo $row[9]; ?>" type="text" ></td>
 </tr>
 
 <tr>
@@ -154,6 +151,18 @@ Female:<input value="Female" name="gender" type="radio" checked ></td>
 <td></td>
 <td></td>
 </tr> 
+
+<tr>
+<td></td>
+<td>Life Time
+	<?php if($row[12]=='Yes'){ ?>
+ <input name="lifetime"  type="checkbox" checked value="Yes" >
+	<?php }else{ ?>
+<input name="lifetime"  type="checkbox" value="yes" >
+	<?php } ?>
+ </td>
+</tr>
+
 
 <tr>
 <td></td>

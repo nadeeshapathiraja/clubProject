@@ -9,15 +9,12 @@
 	$address="";
 	$dob="";
 	$gender="";
-	$school="";
-	$grade="";
-	$parentname="";
+	$qulification="";
 	$mobile="";
 	$fixed="";
 		
 if (isset($_POST["searchid"])){
-
-		$searchid=$_POST["searchid"];
+$searchid=$_POST["searchid"];
 
 	$hostname= "localhost";
 	$username="swimming";
@@ -29,7 +26,7 @@ if (isset($_POST["searchid"])){
 	$database=mysqli_select_db($con,"swimmingclub");
 	
 	
-	$sql="SELECT * FROM students WHERE indexno='$searchid' ";
+	$sql="SELECT * FROM admins WHERE id='$searchid' ";
 	
 	
 	$result=mysqli_query($con,$sql);
@@ -45,12 +42,11 @@ if (isset($_POST["searchid"])){
 		$address=$row[4];
 		$dob=$row[5];
 		$gender=$row[6];
-		$school=$row[7];
-		$grade=$row[8];
-		$parentname=$row[9];
-		$mobile=$row[10];
-		$fixed=$row[11];
-		
+		$qulification=$row[7];
+		$mobile=$row[8];
+		$fixed=$row[9];
+		//echo $id;
+		//echo $fullname;
 	}else{
 		echo "Not  This Record In Database<br/>";	
 	}
@@ -65,26 +61,26 @@ if (isset($_POST["searchid"])){
 
 <html>
 <head>
-<title>view Search Student</title>
+<title>view Search Admin</title>
 <link href="style/viewSearch.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body class="body">
 <form method="post" action="#" class="form1" name="form1" style="text-align:center" >
-	<h1>Search Student</h1>
-	Enter Index: <input type="text" class="searchfield" name="searchid" placeholder="Enter Index Number" size="10px"/>
+	<h1>Search Admin</h1>
+	Enter NIC: <input type="text" class="searchfield" name="searchid" placeholder="Enter Index Number" size="10px"/>
 	<input type="submit" class="search" value="Search" value="<?php echo $index; ?>" />
 </form>
 
 
 <div class="logbox">
-<h1>View Student</h1>
+<h1>View Admin</h1>
 <form class="form2" name="form2" action="#" method="post"  enctype="multipart/form-data">
 <table class="tabledate">
 
 <tr>
     <td>Image</td>
-    <td><img src="http://localhost/NIBMProject/students/<?php echo  $row[0] ?>" style="height: 100px; width: 100px;"></td>
+    <td><img src="http://localhost/NIBMProject/admin/<?php echo  $row[0] ?>" style="height: 100px; width: 100px;"></td>
 </tr> 
 
 <tr>
@@ -124,28 +120,13 @@ Female:<input value="Female" name="gender" type="radio" checked ></td>
 </tr>
 
 <tr>
-<td>School: </td>
-<td><input name="school" type="text" value="<?php echo $row[7]; ?>" ></td>
-</tr>
-<tr>
-<td>Grade: </td>
-<td><select name="grade">
-		<option value="<?php echo $row[8]; ?>"><?php echo $row[8]; ?></option>
-		
-
-</select></td>
-</tr>
-
-
-
-<tr>
-<td>Parent Name: </td>
-<td><input name="parentname" type="text" value="<?php echo $row[9]; ?>" ></td>
+<td>Qulifications: </td>
+<td><textarea name="qulification" ><?php echo $row[7]; ?></textarea></td>
 </tr>
 
 <tr>
 <td>Phone: </td>
-<td>Mobile: <input name="mobile" type="text" value="<?php echo $row[10]; ?>" ><br/>Fixed: <input name="fixed" type="text" value="<?php echo $row[11]; ?>" ></td>
+<td>Mobile: <input name="mobile" type="text" value="<?php echo $row[8]; ?>" ><br/>Fixed: <input name="fixed" type="text" value="<?php echo $row[9]; ?>" ></td>
 </tr>
 
 

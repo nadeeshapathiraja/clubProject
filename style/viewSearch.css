@@ -13,7 +13,7 @@
 .body{
 	margin:0;
 	padding:0;
-	height:100%;
+	height:150%;
 	background:url(../Image/2.jpg);
 	background-repeat:no-repeat;
 	background-size:cover;
@@ -23,10 +23,10 @@
 }
 .logbox{
 	width:500px;
-	height:500px;
+	height:700px;
 	background:url(../Image/6.jpg);
 	color:#000;
-	top:60%;
+	top:90%;
 	left:50%;
 	text-align:center;
 	position:absolute;
@@ -34,7 +34,7 @@
 	background-size:cover;
 	transform:translate(-50%,-50%);
 	box-sizing:border-box;
-	padding:70px 30px;
+	padding:45px 30px;
 }
 
 .search{
